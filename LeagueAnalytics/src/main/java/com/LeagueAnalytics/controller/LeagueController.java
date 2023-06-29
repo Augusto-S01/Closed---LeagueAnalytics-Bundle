@@ -16,7 +16,9 @@ import com.LeagueAnalytics.dto.HomepageInfoDTO;
 import com.LeagueAnalytics.dto.InfoDTO;
 import com.LeagueAnalytics.dto.LeagueEntryDTO;
 import com.LeagueAnalytics.dto.MatchDTO;
+import com.LeagueAnalytics.dto.ParticipantDTO;
 import com.LeagueAnalytics.dto.SummonerNameDTO;
+import com.LeagueAnalytics.dto.SummonerNameResumedDTO;
 import com.LeagueAnalytics.exception.SummonerNotFoudException;
 import com.LeagueAnalytics.service.LeagueService;
 import com.LeagueAnalytics.service.MatchService;
@@ -35,8 +37,8 @@ public class LeagueController {
 	@Autowired
 	private MatchService matchService;
 	
-	@GetMapping("/{nickname}")
-	public void teste(@PathVariable String nickname){
+	@GetMapping(value = "/{nickname}")
+	public ResponseEntity<HomepageInfoDTO> resume(@PathVariable String nickname){
 		SummonerNameDTO summoner = summonerService.getSummonerByNickname(nickname);
 		List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summoner.getId());
 		List<String> ListMatchIDS = matchService.getListMatchIdsByPuuid(summoner.getPuuid(), 0l, 3l);
@@ -44,6 +46,16 @@ public class LeagueController {
 		ListMatchIDS.forEach( matchId -> Listmatchs.add( matchService.getMatchByMatchId(matchId)) );
 		
 		HomepageInfoDTO homepageInfoDTO = new HomepageInfoDTO(summoner,leagueEntrys,Listmatchs);
-		System.out.println();
+		return ResponseEntity.ok(homepageInfoDTO);
+	}
+	
+	
+	@GetMapping(value = "matchDetail/{matchID}")
+	public void matchDetail(@PathVariable String matchID){
+		MatchDTO matchDTO = matchService.getMatchByMatchId(matchID);
+		DetailsMatchDTO dmatchDTO = new DetailsMatchDTO(matchDTO);
+		
+		return ResponseEntity.ok(dmatchDTO);
+		
 	}
 }
