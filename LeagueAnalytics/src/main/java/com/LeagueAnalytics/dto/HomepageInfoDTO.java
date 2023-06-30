@@ -18,14 +18,8 @@ public class HomepageInfoDTO {
         this.listMatchsResumed = listmatchs.stream()
         									.map(MatchResumedDTO::new)
         									.collect(Collectors.toList());
-        
 	}
-	
-
-
-	public HomepageInfoDTO() {
-		
-	}
+	public HomepageInfoDTO() {}
 	
 	public SummonerNameResumedDTO getSummoner() {
 		return summoner;

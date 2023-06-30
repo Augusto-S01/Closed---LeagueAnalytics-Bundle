@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.LeagueAnalytics.dto.DetailsMatchDTO;
 import com.LeagueAnalytics.dto.HomepageInfoDTO;
 import com.LeagueAnalytics.dto.InfoDTO;
 import com.LeagueAnalytics.dto.LeagueEntryDTO;
@@ -51,7 +52,7 @@ public class LeagueController {
 	
 	
 	@GetMapping(value = "matchDetail/{matchID}")
-	public void matchDetail(@PathVariable String matchID){
+	public ResponseEntity<DetailsMatchDTO> matchDetail(@PathVariable String matchID){
 		MatchDTO matchDTO = matchService.getMatchByMatchId(matchID);
 		DetailsMatchDTO dmatchDTO = new DetailsMatchDTO(matchDTO);
 		

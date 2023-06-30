@@ -8,6 +8,7 @@ import com.LeagueAnalytics.compareble.ParticipantRoleComparator;
 public class MatchResumedDTO {
 	
 	private long gameCreation;
+	private String matchId;
 	private String gameMode;
 	private String gameType;
 	private List<ParticipantResumedDTO> blueTeam;
@@ -15,6 +16,7 @@ public class MatchResumedDTO {
 	
 	public MatchResumedDTO(MatchDTO matchDTO) {
 		this.gameCreation = matchDTO.getInfo().getGameCreation();
+		this.setMatchId(matchDTO.getMetadata().getMatchId());
 		this.gameMode = matchDTO.getInfo().getGameMode();
 		this.gameType = matchDTO.getInfo().getGameType();
 		ParticipantRoleComparator participantRoleComparator = new ParticipantRoleComparator();
@@ -28,6 +30,7 @@ public class MatchResumedDTO {
 				.sorted(participantRoleComparator)
 				.map(ParticipantResumedDTO::new) 
 		        .collect(Collectors.toList());
+		
 
 	}
 	
@@ -79,6 +82,16 @@ public class MatchResumedDTO {
 
 	public void setBlueTeam(List<ParticipantResumedDTO> blueTeam) {
 		this.blueTeam = blueTeam;
+	}
+
+
+	public String getMatchId() {
+		return matchId;
+	}
+
+
+	public void setMatchId(String matchId) {
+		this.matchId = matchId;
 	}
 	
 }
