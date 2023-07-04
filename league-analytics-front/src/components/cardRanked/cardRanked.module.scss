@@ -1,0 +1,77 @@
+.cardRanked{
+	background: #2D2E44;
+	width: 19em;
+	padding-bottom: 2em;
+	
+
+	&__soloDuo{
+		border-radius: 30px 30px 0px 3px;
+		
+	}
+	&__flex{
+		border-top: 1px solid #FFF;
+		border-radius: 0px 0px 30px 30px;
+	}
+}
+
+.cardContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.rankTittle{
+	padding-top: 0.5em;
+	margin-bottom: 1em;
+	color: #FFF;
+	text-align: center;
+	font-size: 25px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.rankedEmblem{
+	background-color: #445;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	position: relative;
+	margin-right: 2em;
+	&__img{
+		position: absolute;
+		bottom: 17%;
+		width: 100%;
+	}
+}
+
+.rankedInfo{
+	&__elo{
+		color: #FFF;
+		text-align: center;
+		font-size: 25px;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+
+	&__pdl{
+		color: #999;
+		font-size: 25px;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	&__winRate{
+		color: #999;
+		font-size: 20px;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+}

@@ -1,0 +1,15 @@
+.backgroud_video{
+	filter: blur(3.5px);
+}
+.fullCover{
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+}
+
+.header{
+	height: 12em;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}

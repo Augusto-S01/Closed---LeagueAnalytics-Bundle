@@ -1,0 +1,90 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Set default padding to 0 */
+body {
+  padding: 0;
+}
+
+/* Set default font size and family */
+body {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Remove default text decoration */
+a {
+  text-decoration: none;
+}
+
+/* Remove default outline */
+button,
+input,
+textarea {
+  outline: none;
+}
+
+/* Remove default border */
+button,
+input,
+textarea {
+  border: none;
+}
+
+/* Remove default background */
+button,
+input,
+textarea {
+  background: none;
+}
+
+/* Remove default cursor */
+button,
+input,
+textarea {
+  cursor: pointer;
+}
+
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+/* Estilo do trilho da barra de rolagem */
+::-webkit-scrollbar-track {
+  background-color: #000; /* Cor do trilho */
+}
+
+/* Estilo do polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #333; /* Cor do polegar */
+}
+
+/* Estilo do polegar da barra de rolagem ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Cor do polegar ao passar o mouse */
+}
