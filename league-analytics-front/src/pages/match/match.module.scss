@@ -1,0 +1,223 @@
+.main {
+	background: #353535;
+	padding-bottom: 25em;
+	//   padding-bottom: 3em;
+  
+}
+
+.stylecardMatch {
+  margin-top: 20em;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 25px;
+  background: #2d2e44;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 3em;
+//   padding-bottom: 50vh;
+  padding-bottom: 20em;
+
+  .firstLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__queueType {
+      color: #5e8fc9;
+      font-size: 3em;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    &__timerContainer {
+      display: flex;
+      flex-direction: column;
+    }
+    &__text {
+      color: #767676;
+      font-size: 1.5em;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  .secondLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10em;
+    &__info {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      & div:nth-of-type(n + 2) {
+        margin-left: 3em;
+      }
+    }
+    //   justify-content: space-between;
+    //   align-items: center;
+  }
+
+  .titulo_branco {
+    color: #fff;
+    font-size: 2em;
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .texto_cinza {
+    color: #717173;
+    font-size: 1.5em;
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .championContainer {
+    display: flex;
+    flex-direction: row;
+
+    &__img {
+      width: 5em;
+      height: 5em;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2em;
+
+      &__championName {
+      }
+      &__championDetail {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        &__championLevel {
+        }
+        &__role {
+        }
+      }
+    }
+  }
+
+  .kdaContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2em;
+    &__kda {
+    }
+    &__kda__score {
+    }
+    &__kda__media {
+    }
+  }
+
+  .csContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2em;
+    &__cs {
+    }
+    &__value {
+    }
+    &__media {
+    }
+  }
+
+  .wardContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    justify-content: center;
+    align-items: center;
+    &__wardTittle {
+    }
+    &__info {
+    }
+  }
+
+  .objetivosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__objetivos {
+      color: #fff;
+      font-size: 2em;
+      font-family: Roboto Mono;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    &__objetivos__container {
+      display: flex;
+      align-items: center;
+    }
+    &__objetivo {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-left: 2em;
+      margin-top: 2em;
+      & img {
+        width: 2em;
+        height: 2em;
+      }
+    }
+  }
+
+  .runasContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3em;
+    &__containerPrimario {
+      display: flex;
+      flex-direction: row;
+      & img {
+        width: 2em;
+        height: 2em;
+        margin-left: 1em;
+      }
+    }
+    &__containerSecundario {
+      display: flex;
+      flex-direction: row;
+      margin-top: 0.5em;
+      & img {
+        width: 2em;
+        height: 2em;
+        margin-left: 1em;
+      }
+    }
+    &__Containerperks {
+      display: flex;
+      flex-direction: row;
+      & img {
+        width: 2em;
+        height: 2em;
+        margin-left: 1em;
+      }
+    }
+  }
+
+  .secondLine__map {
+    height: 18em;
+  }
+}
+
+.redTeam{
+
+}
+.blueTeam{
+
+}
