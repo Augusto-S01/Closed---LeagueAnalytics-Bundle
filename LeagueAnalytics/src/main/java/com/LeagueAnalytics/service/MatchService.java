@@ -42,7 +42,7 @@ public class MatchService {
 	}
 	
 	public MatchDTO getMatchByMatchId(String matchId) {
-		String url = "https://americas.api.riotgames.com/lol/match/v5/matches/BR1_2754412385";
+		String url = "https://americas.api.riotgames.com/lol/match/v5/matches/"+ matchId;
 		RestTemplate restTemplate = new RestTemplate();
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpHeaders headers = new HttpHeaders();

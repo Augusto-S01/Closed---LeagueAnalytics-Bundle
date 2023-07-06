@@ -1,0 +1,7 @@
+{
+	"TOP"     : "../../assets/position/icon-position-top.png",
+	"JUNGLE"  : "../../assets/position/icon-position-jungle.png",
+	"MIDDLE"  : "../../assets/position/icon-position-middle.png",
+	"BOTTOM"  : "../../assets/position/icon-position-bottom.png",
+	"SUPPORT" : "../../assets/position/icon-position-utility.png"
+}

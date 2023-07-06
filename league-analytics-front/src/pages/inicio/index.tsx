@@ -6,24 +6,34 @@ import CardRanked from "../../components/cardRanked";
 
 import style from "./inicio.module.scss";
 import Partida from "../../components/partida";
+import IHomepageInfo from "../../model/IHomepageInfo";
+import { useRecoilState } from "recoil";
+import { homepageInfoState } from "../../state/atom";
+
+
+
 
 function inicio(){
+	const data   = useRecoilState<IHomepageInfo>(homepageInfoState)[0];
+	
+
+
+
 	return(
 		<div>
 			<Header/>
 			<NavBar/>
-
 			<main className={style.main}>
 				<aside className={style.aside}>
-					<CardRanked tittle="Ranked Solo/Duo"/>
-					<CardRanked tittle="Ranked Flex"/>
+					{data.leagueEntrys.map((leagueEntry,index) => (
+						<CardRanked key={index} leagueEntry={leagueEntry} />
+					))}
 				</aside>
 				<section className={style.section}>
 					<ul className={style.list}>
-						<Partida/>
-						<Partida/>
-						<Partida/>
-						<Partida/>
+						{data.listMatchsResumed.map((match,index) => (
+							<Partida key={index} match={match}/>
+						))}
 					</ul>
 				</section>
 			</main>

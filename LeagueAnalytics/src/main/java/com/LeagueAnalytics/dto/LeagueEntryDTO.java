@@ -2,8 +2,11 @@ package com.LeagueAnalytics.dto;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LeagueEntryDTO {
-	private UUID leagueId;
+	private String leagueId;
 	private String queueType;
 	private String tier;
 	private String rank;
@@ -16,10 +19,10 @@ public class LeagueEntryDTO {
 	private boolean inactive;
 	private boolean freshBlood;
 	private boolean hotStreak;
-	public UUID getLeagueId() {
+	public String getLeagueId() {
 		return leagueId;
 	}
-	public void setLeagueId(UUID leagueId) {
+	public void setLeagueId(String leagueId) {
 		this.leagueId = leagueId;
 	}
 	public String getQueueType() {

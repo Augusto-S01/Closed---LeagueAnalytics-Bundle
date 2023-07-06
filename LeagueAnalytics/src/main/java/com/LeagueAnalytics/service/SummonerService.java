@@ -36,7 +36,8 @@ public class SummonerService {
         }catch(HttpClientErrorException e) {
         	if(e.getStatusCode() == HttpStatus.NOT_FOUND) {
         		throw new SummonerNotFoudException("Summoner não encontrado");        		
-        	}else throw e;
+        	}
+        	else throw e;
         }catch(JacksonException e) {
         	throw new Error("500 - Problema na deserialização da classe");
         }

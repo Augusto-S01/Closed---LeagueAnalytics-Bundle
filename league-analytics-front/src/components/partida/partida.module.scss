@@ -13,6 +13,16 @@
 	background: #5E8FC9;
 	width: 5%;
 	height: inherit;
+
+	&__chevronRight{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		filter: invert(1) grayscale(100) brightness(200);
+	}
 }
 
 .container{
@@ -109,6 +119,7 @@
 	height: 40px;
 	padding: 0.5rem;
 	margin-left: 5px;
+	margin-bottom: 0.5em;
 	border-radius: 5px;
 	background: #181539;
 }
@@ -155,21 +166,3 @@
 	margin-left: 1em;
 }
 
-.containerPlayer{
-	display:flex;
-	flex-direction: row;
-
-	& img{
-		width: 1em;
-		height: 1em;
-	}
-	& span{
-		color: #767676;
-		font-size: 16px;
-		font-family: Roboto;
-		font-style: normal;
-		font-weight: 400;
-		line-height: normal;
-		width: 6em;
-	}
-}

@@ -1,3 +1,11 @@
+.searchInputContainer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
 .searchInput{
 	border-radius: 48.5px;
 	border: 1px solid #FFF;
@@ -60,4 +68,26 @@
 	  }
 }
 
+.errorContainer{
+	margin-top: 0.5em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	& span{
+		background-color: rgb(33 33 33 / 80%);
+		color: #a8413d;
+		font-size: 1em;
+		font-family: Roboto Mono;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		width: 10em;
+		padding: 0.5em;
+		text-align: center;
+	}
+}
 
+.hide{
+	display: none;
+}

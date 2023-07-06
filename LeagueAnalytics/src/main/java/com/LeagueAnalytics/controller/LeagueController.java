@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,7 @@ import com.LeagueAnalytics.service.SummonerService;
 
 @RestController
 @RequestMapping("/league")
+@CrossOrigin("*")
 public class LeagueController {
 	@Value("${riotAPI.key}")
 	private String riotAPI;
@@ -39,8 +42,13 @@ public class LeagueController {
 	private MatchService matchService;
 	
 	@GetMapping(value = "/{nickname}")
-	public ResponseEntity<HomepageInfoDTO> resume(@PathVariable String nickname){
-		SummonerNameDTO summoner = summonerService.getSummonerByNickname(nickname);
+	public ResponseEntity<?> resume(@PathVariable String nickname){
+		SummonerNameDTO summoner = new SummonerNameDTO();
+		try {
+			summoner = summonerService.getSummonerByNickname(nickname);
+		}catch(SummonerNotFoudException e) {
+			return ResponseEntity.status(HttpStatusCode.valueOf(404)).body("Nao encontrado");
+		}
 		List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summoner.getId());
 		List<String> ListMatchIDS = matchService.getListMatchIdsByPuuid(summoner.getPuuid(), 0l, 3l);
 		List<MatchDTO> Listmatchs = new ArrayList<MatchDTO>();
@@ -49,6 +57,13 @@ public class LeagueController {
 		HomepageInfoDTO homepageInfoDTO = new HomepageInfoDTO(summoner,leagueEntrys,Listmatchs);
 		return ResponseEntity.ok(homepageInfoDTO);
 	}
+	
+//	@GetMapping(value = "/verifySummoner/{nickname}")
+//	public Boolean> verifySummoner(@PathVariable String nickname){
+//		SummonerNameDTO summoner = new SummonerNameDTO();
+//		summoner = summonerService.getSummonerByNickname(nickname);
+//		return true;
+//	}
 	
 	
 	@GetMapping(value = "matchDetail/{matchID}")
