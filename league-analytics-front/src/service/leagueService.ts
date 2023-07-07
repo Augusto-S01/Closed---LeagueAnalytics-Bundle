@@ -13,3 +13,6 @@ export function getSummonerByNickname(nickname: string) {
 	return axios.get(`http://localhost:8080/league/${nickname}`, config);
 
 }
+
+
+

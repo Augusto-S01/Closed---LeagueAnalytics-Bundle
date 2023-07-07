@@ -21,20 +21,17 @@ function SearchInput() {
 	function enterSearch() {
 		if(region == "") {
 			showError(errorList.regiaoNotSelected);
-			console.log(`region : ${region}`);
 			return;
 		}
 		if(summonerNickName == "") {
 			showError(errorList.summonerNotFound);
-			console.log(`summonerNickName : ${summonerNickName}`);
 			return;
 		}
 
 		if (error == ""){
 			getSummonerByNickname(summonerNickName)
 				.then((response) => {
-					const data: IHomepageInfo = response.data; // Obtenha os dados da resposta
-					console.log(data);
+					const data: IHomepageInfo = response.data;
 					setHomepageInfo(data);
 					navigate(`/BR/${summonerNickName}`);
 				});

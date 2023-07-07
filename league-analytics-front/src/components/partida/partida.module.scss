@@ -37,24 +37,7 @@
 }
 .container2{
 }
-.kdaTittle{
-	color: #FFF;
-	font-size: 20px;
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	margin-bottom: 0.5em;
-}
-.kda{
-	color: #FFF;
-	font-size: 20px;
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	margin-bottom: 0.5em;
-}
+
 
 .firstBlock{
 	display: flex;
@@ -84,14 +67,7 @@
 	width: 3em;
 	height: 3em;
 }
-.containerSpell{
-	display:flex;
-	flex-direction: column;
-	& img{
-		width: 2em;
-		height: 2em;
-	}
-}
+
 .queueType{
 	color: #5E8FC9;
 	font-size: 1em;
@@ -110,19 +86,8 @@
 	width: 2em;
 }
 
-.rune{
-	width: 2em;
-	height: 2em;
-}
-.item{
-	width: 40px;
-	height: 40px;
-	padding: 0.5rem;
-	margin-left: 5px;
-	margin-bottom: 0.5em;
-	border-radius: 5px;
-	background: #181539;
-}
+
+
 .matchResultSpan{
 	color: #767676;
 	font-size: 16px;
@@ -133,29 +98,29 @@
 	padding-bottom: 1em;
 }
 
-.perkContainer{
-	margin-bottom: 0.25em;
-	margin-top: 0.25em;
-}
 
 
-.parent {
+
+.containerKillRunasItens {
 	margin-left: 1em;
 	padding: 1em;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-}
-	
-.div1 { 
-	grid-area: 1 / 1 / 2 / 2;
 	display: flex;
 	flex-direction: column;
 }
-.div2 { grid-area: 1 / 2 / 2 / 3; }
-.div3 { grid-area: 2 / 1 / 3 / 3; }
+.containerKDAMatchResultRunes{
+	display: flex;
+	flex-direction: row;
+	margin-left: 1em;
+}
+.containerMatchResultRunes{
+	margin-left: 1.5em;
+}
+
+
+	
+
+
+
 
 
 .containerPlayers{

@@ -58,12 +58,16 @@ public class LeagueController {
 		return ResponseEntity.ok(homepageInfoDTO);
 	}
 	
-//	@GetMapping(value = "/verifySummoner/{nickname}")
-//	public Boolean> verifySummoner(@PathVariable String nickname){
-//		SummonerNameDTO summoner = new SummonerNameDTO();
-//		summoner = summonerService.getSummonerByNickname(nickname);
-//		return true;
-//	}
+	@GetMapping(value = "/verifySummoner/{nickname}")
+	public ResponseEntity<Boolean> verifySummoner(@PathVariable String nickname){
+		try {
+			SummonerNameDTO summoner = new SummonerNameDTO();
+			summoner = summonerService.getSummonerByNickname(nickname);
+			return ResponseEntity.ok().build();
+		}catch(SummonerNotFoudException e ) {
+			return ResponseEntity.notFound().build();
+		}
+	}
 	
 	
 	@GetMapping(value = "matchDetail/{matchID}")

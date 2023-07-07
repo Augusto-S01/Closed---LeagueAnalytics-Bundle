@@ -1,0 +1,14 @@
+.containerItens {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+    margin-left: 5px;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    background: #181539;
+}

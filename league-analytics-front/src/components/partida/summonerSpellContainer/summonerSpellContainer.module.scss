@@ -1,0 +1,9 @@
+.containerSpell {
+    display: flex;
+    flex-direction: column;
+
+    & img {
+        width: 2em;
+        height: 2em;
+    }
+}
