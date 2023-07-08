@@ -2,17 +2,30 @@
 	margin-top: 2em;
 	height: 8em;
 	margin-right: 2em;
-	background: rgba(94, 143, 201, 0.33);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	
+	&__lose{
+		background: rgba(201, 94, 94, 0.33);
+	}
+	&__win{
+		background: rgba(94, 143, 201, 0.33);
+
+	}
 }
 
 
 .border{
-	background: #5E8FC9;
 	width: 5%;
 	height: inherit;
+	
+	&__lose{
+		background: #C95E5E;
+	}
+	&__win{
+		background: #5E8FC9;
+	}
 
 	&__chevronRight{
 		width: 100%;

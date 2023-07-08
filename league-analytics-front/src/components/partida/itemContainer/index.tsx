@@ -8,15 +8,16 @@ interface Props{
 }
 
 function ItemContainer({participante}: Props){
+
+	const itens = [participante.item0,participante.item1,participante.item2,participante.item3,participante.item4,participante.item5,participante.item6];
+
+
 	return(
 		<div className={style.containerItens}>
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item0}.png`} className={style.item} />
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item1}.png`} className={style.item} />
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item2}.png`} className={style.item} />
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item3}.png`} className={style.item} />
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item4}.png`} className={style.item} />
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item5}.png`} className={style.item} />
-			<img src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${participante.item6}.png`} className={style.item} />
+			{itens.map((item,index) => {
+				if(item === 0) return <div key={index} className={style.item}></div>;
+				return <img key={index} src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/item/${item}.png`} className={style.item} />;
+			})}
 		</div>
 	);
 }

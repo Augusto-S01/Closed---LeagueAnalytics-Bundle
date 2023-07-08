@@ -2,6 +2,7 @@ package com.LeagueAnalytics.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +20,7 @@ import com.LeagueAnalytics.dto.HomepageInfoDTO;
 import com.LeagueAnalytics.dto.InfoDTO;
 import com.LeagueAnalytics.dto.LeagueEntryDTO;
 import com.LeagueAnalytics.dto.MatchDTO;
+import com.LeagueAnalytics.dto.MatchResumedDTO;
 import com.LeagueAnalytics.dto.ParticipantDTO;
 import com.LeagueAnalytics.dto.SummonerNameDTO;
 import com.LeagueAnalytics.dto.SummonerNameResumedDTO;
@@ -77,5 +79,26 @@ public class LeagueController {
 		
 		return ResponseEntity.ok(dmatchDTO);
 		
+	}
+	
+//	public MatchDTO getMatches(Long displayedMatched, )
+	@GetMapping(value = "/getMoreMatchs/{puuid}/{region}/{matchesDisplayed}")
+	public ResponseEntity <List<MatchResumedDTO>> getMoreMatchs(
+			@PathVariable String puuid, 
+			@PathVariable String region,
+			@PathVariable Long matchesDisplayed
+			){
+		try {
+			Long matchesCount = 3l;
+			List<MatchDTO> listmatchs = new ArrayList<MatchDTO>();
+			List<String> listMatchIDS = matchService.getMoreMatches(matchesDisplayed,matchesCount,puuid);
+			listMatchIDS.forEach( matchId -> listmatchs.add( matchService.getMatchByMatchId(matchId)) );
+			List<MatchResumedDTO> listMatchResumed = listmatchs.stream().map(MatchResumedDTO::new).collect(Collectors.toList());
+			return ResponseEntity.ok(listMatchResumed);
+
+		}catch(Exception e) {
+			
+		}
+		return null;
 	}
 }

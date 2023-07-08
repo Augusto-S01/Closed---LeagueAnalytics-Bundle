@@ -66,5 +66,30 @@ public class MatchService {
             return null;
         }
 	}
+
+	public List<String> getMoreMatches(Long matchesDisplayed, Long matchesCount, String puuid) {
+		String url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" 
+		+ puuid 
+		+ "/ids?start=" 
+		+ matchesDisplayed 
+		+"&count=" 
+		+ matchesCount;
+		RestTemplate restTemplate = new RestTemplate();
+		ObjectMapper objectMapper = new ObjectMapper();
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("X-Riot-Token", riotAPI);
+		
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		
+		try {
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+			List<String> leagueEntry = objectMapper.readValue(response.getBody(), new TypeReference<List<String>>() {});
+			return leagueEntry;
+		}catch(JacksonException e) {
+        	throw new Error("500 - Problema na deserialização da classe");
+        }
+
+		
+	}
 	
 }

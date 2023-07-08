@@ -21,6 +21,7 @@ import RoleImg from "./roleImg";
 import KdaContainer from "./kdaContainer";
 import PerkContainer from "./perkContainer";
 import ItemContainer from "./itemContainer";
+import classNames from "classnames";
 
 interface Props{
 	match : IMatchResumed;
@@ -40,9 +41,21 @@ function Partida({match}: Props){
 	
 
 	return(
-		<div className={style.partida} >
-			<div className={style.border}></div>
-			<div className={style.container}>
+		<div className={classNames({
+			[style.partida]: true,
+			[style.partida__lose]: participante?.win === false,
+			[style.partida__win]: participante?.win === true,
+		})} >
+			<div className={classNames({
+				[style.border]: true,
+				[style.border__lose]: participante?.win === false,
+				[style.border__win]: participante?.win === true,
+			})}></div>
+			<div className={classNames({
+				[style.container]: true,
+				[style.container__lose]: participante?.win === false,
+				[style.container__win]: participante?.win === true,
+			})}>
 				<div className={style.container1}>
 					<h1 className={style.queueType}>Ranqueada Solo/Duo</h1>
 					<div className={style.firstBlock}>
@@ -70,7 +83,11 @@ function Partida({match}: Props){
 					<TeamResumedContainer team={match.redTeam}  color={"red" } />
 				</div>
 			</div>
-			<div className={style.border}>
+			<div className={classNames({
+				[style.border]: true,
+				[style.border__lose]: participante?.win === false,
+				[style.border__win]: participante?.win === true,
+			})}>
 				<img src={chevron_right} alt="chevron_right" className={style.border__chevronRight} />
 			</div>
 		</div>
