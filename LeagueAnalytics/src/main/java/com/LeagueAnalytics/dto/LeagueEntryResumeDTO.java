@@ -1,5 +1,7 @@
 package com.LeagueAnalytics.dto;
 
+import com.LeagueAnalytics.dto.leagueDTO.LeagueEntryDTO;
+
 public class LeagueEntryResumeDTO {
 
 	private String queueType;

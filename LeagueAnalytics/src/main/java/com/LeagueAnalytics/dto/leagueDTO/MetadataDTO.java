@@ -1,4 +1,4 @@
-package com.LeagueAnalytics.dto;
+package com.LeagueAnalytics.dto.leagueDTO;
 
 import java.util.List;
 

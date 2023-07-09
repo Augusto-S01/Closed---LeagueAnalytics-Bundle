@@ -1,6 +1,8 @@
-package com.LeagueAnalytics.dto;
+package com.LeagueAnalytics.dto.leagueDTO;
 
 import java.util.List;
+
+import com.LeagueAnalytics.dto.TeamDTO;
 
 public class InfoDTO {
 	private long gameCreation;

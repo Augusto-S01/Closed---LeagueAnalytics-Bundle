@@ -1,5 +1,8 @@
 package com.LeagueAnalytics.dto;
 
+import com.LeagueAnalytics.dto.leagueDTO.ParticipantDTO;
+import com.LeagueAnalytics.dto.leagueDTO.PerksDTO;
+
 public class ParticipantDetailDTO {
 	private long teamId;
 

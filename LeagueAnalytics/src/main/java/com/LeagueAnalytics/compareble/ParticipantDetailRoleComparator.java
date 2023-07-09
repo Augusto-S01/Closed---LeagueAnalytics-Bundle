@@ -1,8 +1,8 @@
 package com.LeagueAnalytics.compareble;
 import java.util.Comparator;
 
-import com.LeagueAnalytics.dto.ParticipantDTO;
 import com.LeagueAnalytics.dto.ParticipantDetailDTO;
+import com.LeagueAnalytics.dto.leagueDTO.ParticipantDTO;
 
 
 

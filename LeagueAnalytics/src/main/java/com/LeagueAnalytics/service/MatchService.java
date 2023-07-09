@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import com.LeagueAnalytics.dto.MatchDTO;
+import com.LeagueAnalytics.dto.leagueDTO.MatchDTO;
 import com.LeagueAnalytics.dto.params.ParamsMatchByPuuidDTO;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.type.TypeReference;

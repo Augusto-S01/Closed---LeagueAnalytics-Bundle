@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.LeagueAnalytics.dto.DetailsMatchDTO;
-import com.LeagueAnalytics.dto.MatchDTO;
 import com.LeagueAnalytics.dto.MatchResumedDTO;
+import com.LeagueAnalytics.dto.leagueDTO.DetailsMatchDTO;
+import com.LeagueAnalytics.dto.leagueDTO.MatchDTO;
 import com.LeagueAnalytics.dto.params.ParamsMatchByPuuidDTO;
 import com.LeagueAnalytics.service.MatchService;
 

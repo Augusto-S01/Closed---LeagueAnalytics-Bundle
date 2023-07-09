@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.LeagueAnalytics.compareble.ParticipantRoleComparator;
+import com.LeagueAnalytics.dto.leagueDTO.MatchDTO;
 
 public class MatchResumedDTO {
 	

@@ -1,7 +1,7 @@
 package com.LeagueAnalytics.compareble;
 import java.util.Comparator;
 
-import com.LeagueAnalytics.dto.ParticipantDTO;
+import com.LeagueAnalytics.dto.leagueDTO.ParticipantDTO;
 
 public class ParticipantRoleComparator implements Comparator<ParticipantDTO> {
     private final String[] positions = {"top", "JUNGLE", "MIDDLE", "BOTTOM", "UTILITY"};

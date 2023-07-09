@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.LeagueAnalytics.dto.LeagueEntryDTO;
 import com.LeagueAnalytics.dto.SummonerNameDTO;
+import com.LeagueAnalytics.dto.leagueDTO.LeagueEntryDTO;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

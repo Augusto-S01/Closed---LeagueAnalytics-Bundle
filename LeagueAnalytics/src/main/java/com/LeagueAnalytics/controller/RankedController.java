@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.LeagueAnalytics.dto.LeagueEntryDTO;
+import com.LeagueAnalytics.dto.LeagueEntrySeparated;
 import com.LeagueAnalytics.dto.SummonerNameDTO;
+import com.LeagueAnalytics.dto.leagueDTO.LeagueEntryDTO;
 import com.LeagueAnalytics.exception.SummonerNotFoudException;
 import com.LeagueAnalytics.service.LeagueService;
 
@@ -41,6 +42,15 @@ public class RankedController {
 		}
 
 	}
-	
+	@GetMapping(value = "/filter/{summonerID}")
+	public ResponseEntity<?> getLeagueEntrysBySummonerIDFilter(@PathVariable String summonerID){
+		try {
+			List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summonerID);
+			LeagueEntrySeparated leagueEntrySeparated = new LeagueEntrySeparated(leagueEntrys);
+			return ResponseEntity.ok(leagueEntrySeparated);
+		}catch(SummonerNotFoudException e) {
+			return ResponseEntity.status(HttpStatusCode.valueOf(404)).body("Nao encontrado");
+		}
+	}
 
 }

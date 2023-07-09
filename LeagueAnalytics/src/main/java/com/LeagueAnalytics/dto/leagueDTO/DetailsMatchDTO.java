@@ -1,9 +1,10 @@
-package com.LeagueAnalytics.dto;
+package com.LeagueAnalytics.dto.leagueDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.LeagueAnalytics.compareble.ParticipantRoleComparator;
+import com.LeagueAnalytics.dto.ParticipantDetailDTO;
 
 public class DetailsMatchDTO {
 	private long gameCreation;

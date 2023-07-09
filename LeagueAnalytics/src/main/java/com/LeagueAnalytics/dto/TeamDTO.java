@@ -2,6 +2,9 @@ package com.LeagueAnalytics.dto;
 
 import java.util.List;
 
+import com.LeagueAnalytics.dto.leagueDTO.BanDTO;
+import com.LeagueAnalytics.dto.leagueDTO.ObjectivesDTO;
+
 public class TeamDTO {
     private List<BanDTO> bans;
     private ObjectivesDTO objectives;

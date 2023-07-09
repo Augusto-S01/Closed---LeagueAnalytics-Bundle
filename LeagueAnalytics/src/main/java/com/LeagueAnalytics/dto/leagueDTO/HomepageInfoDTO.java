@@ -1,8 +1,13 @@
-package com.LeagueAnalytics.dto;
+package com.LeagueAnalytics.dto.leagueDTO;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.LeagueAnalytics.dto.LeagueEntryResumeDTO;
+import com.LeagueAnalytics.dto.MatchResumedDTO;
+import com.LeagueAnalytics.dto.SummonerNameDTO;
+import com.LeagueAnalytics.dto.SummonerNameResumedDTO;
 
 public class HomepageInfoDTO {
 
