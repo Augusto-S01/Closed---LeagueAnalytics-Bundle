@@ -37,7 +37,6 @@ public class LeagueService {
 		}catch(JacksonException e) {
         	throw new Error("500 - Problema na deserialização da classe");
         }
-
 	}
 
 }

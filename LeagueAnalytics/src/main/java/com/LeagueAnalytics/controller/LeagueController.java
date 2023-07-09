@@ -43,62 +43,44 @@ public class LeagueController {
 	@Autowired
 	private MatchService matchService;
 	
-	@GetMapping(value = "/{nickname}")
-	public ResponseEntity<?> resume(@PathVariable String nickname){
-		SummonerNameDTO summoner = new SummonerNameDTO();
-		try {
-			summoner = summonerService.getSummonerByNickname(nickname);
-		}catch(SummonerNotFoudException e) {
-			return ResponseEntity.status(HttpStatusCode.valueOf(404)).body("Nao encontrado");
-		}
-		List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summoner.getId());
-		List<String> ListMatchIDS = matchService.getListMatchIdsByPuuid(summoner.getPuuid(), 0l, 3l);
-		List<MatchDTO> Listmatchs = new ArrayList<MatchDTO>();
-		ListMatchIDS.forEach( matchId -> Listmatchs.add( matchService.getMatchByMatchId(matchId)) );
-		
-		HomepageInfoDTO homepageInfoDTO = new HomepageInfoDTO(summoner,leagueEntrys,Listmatchs);
-		return ResponseEntity.ok(homepageInfoDTO);
-	}
+//	@GetMapping(value = "/{nickname}")
+//	public ResponseEntity<?> resume(@PathVariable String nickname){
+//		SummonerNameDTO summoner = new SummonerNameDTO();
+//		try {
+//			summoner = summonerService.getSummonerByNickname(nickname);
+//		}catch(SummonerNotFoudException e) {
+//			return ResponseEntity.status(HttpStatusCode.valueOf(404)).body("Nao encontrado");
+//		}
+//		List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summoner.getId());
+//		List<String> ListMatchIDS = matchService.getListMatchIdsByPuuid(summoner.getPuuid(), 0l, 3l);
+//		List<MatchDTO> Listmatchs = new ArrayList<MatchDTO>();
+//		ListMatchIDS.forEach( matchId -> Listmatchs.add( matchService.getMatchByMatchId(matchId)) );
+//		
+//		HomepageInfoDTO homepageInfoDTO = new HomepageInfoDTO(summoner,leagueEntrys,Listmatchs);
+//		return ResponseEntity.ok(homepageInfoDTO);
+//	}
 	
-	@GetMapping(value = "/verifySummoner/{nickname}")
-	public ResponseEntity<Boolean> verifySummoner(@PathVariable String nickname){
-		try {
-			SummonerNameDTO summoner = new SummonerNameDTO();
-			summoner = summonerService.getSummonerByNickname(nickname);
-			return ResponseEntity.ok().build();
-		}catch(SummonerNotFoudException e ) {
-			return ResponseEntity.notFound().build();
-		}
-	}
+
 	
-	
-	@GetMapping(value = "matchDetail/{matchID}")
-	public ResponseEntity<DetailsMatchDTO> matchDetail(@PathVariable String matchID){
-		MatchDTO matchDTO = matchService.getMatchByMatchId(matchID);
-		DetailsMatchDTO dmatchDTO = new DetailsMatchDTO(matchDTO);
-		
-		return ResponseEntity.ok(dmatchDTO);
-		
-	}
 	
 //	public MatchDTO getMatches(Long displayedMatched, )
-	@GetMapping(value = "/getMoreMatchs/{puuid}/{region}/{matchesDisplayed}")
-	public ResponseEntity <List<MatchResumedDTO>> getMoreMatchs(
-			@PathVariable String puuid, 
-			@PathVariable String region,
-			@PathVariable Long matchesDisplayed
-			){
-		try {
-			Long matchesCount = 3l;
-			List<MatchDTO> listmatchs = new ArrayList<MatchDTO>();
-			List<String> listMatchIDS = matchService.getMoreMatches(matchesDisplayed,matchesCount,puuid);
-			listMatchIDS.forEach( matchId -> listmatchs.add( matchService.getMatchByMatchId(matchId)) );
-			List<MatchResumedDTO> listMatchResumed = listmatchs.stream().map(MatchResumedDTO::new).collect(Collectors.toList());
-			return ResponseEntity.ok(listMatchResumed);
-
-		}catch(Exception e) {
-			
-		}
-		return null;
-	}
+//	@GetMapping(value = "/getMoreMatchs/{puuid}/{region}/{matchesDisplayed}")
+//	public ResponseEntity <List<MatchResumedDTO>> getMoreMatchs(
+//			@PathVariable String puuid, 
+//			@PathVariable String region,
+//			@PathVariable Long matchesDisplayed
+//			){
+//		try {
+//			Long matchesCount = 3l;
+//			List<MatchDTO> listmatchs = new ArrayList<MatchDTO>();
+//			List<String> listMatchIDS = matchService.getMoreMatches(matchesDisplayed,matchesCount,puuid);
+//			listMatchIDS.forEach( matchId -> listmatchs.add( matchService.getMatchByMatchId(matchId)) );
+//			List<MatchResumedDTO> listMatchResumed = listmatchs.stream().map(MatchResumedDTO::new).collect(Collectors.toList());
+//			return ResponseEntity.ok(listMatchResumed);
+//
+//		}catch(Exception e) {
+//			
+//		}
+//		return null;
+//	}
 }
