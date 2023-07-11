@@ -12,6 +12,7 @@ public class MatchResumedDTO {
 	private String matchId;
 	private String gameMode;
 	private String gameType;
+	private long queueId;
 	private List<ParticipantResumedDTO> blueTeam;
 	private List<ParticipantResumedDTO> redTeam;
 	
@@ -19,6 +20,7 @@ public class MatchResumedDTO {
 		this.gameCreation = matchDTO.getInfo().getGameCreation();
 		this.setMatchId(matchDTO.getMetadata().getMatchId());
 		this.gameMode = matchDTO.getInfo().getGameMode();
+		this.setQueueId(matchDTO.getInfo().getQueueId());
 		this.gameType = matchDTO.getInfo().getGameType();
 		ParticipantRoleComparator participantRoleComparator = new ParticipantRoleComparator();
 		this.setBlueTeam(matchDTO.getInfo().getParticipants().stream()
@@ -93,6 +95,16 @@ public class MatchResumedDTO {
 
 	public void setMatchId(String matchId) {
 		this.matchId = matchId;
+	}
+
+
+	public long getQueueId() {
+		return queueId;
+	}
+
+
+	public void setQueueId(long queueId) {
+		this.queueId = queueId;
 	}
 	
 }

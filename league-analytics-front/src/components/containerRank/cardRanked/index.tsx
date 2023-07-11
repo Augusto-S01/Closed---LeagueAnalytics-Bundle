@@ -16,7 +16,7 @@ import challenger from "assets/ranked-emblem/emblem-challenger.png";
 
 
 import classNames from "classnames";
-import { queueRender } from "../../../utils/queueRender";
+import { queueRank, queueRender } from "../../../utils/queueRender";
 import ILeagueEntry from "model/IleagueEntry";
 
 interface Props{
@@ -42,15 +42,13 @@ function CardRanked({ leagueEntry }: Props){
 	function emblema(rank: string): string{
 		return emblems[rank];
 	}
-
+	if(!leagueEntry) return null;
 
 	return(
 		<div className={classNames({
-			[style.cardRanked]: true,
-			[style.cardRanked__soloDuo]: leagueEntry.queueType === "RANKED_SOLO_5x5",
-			[style.cardRanked__flex]:    leagueEntry.queueType === "RANKED_FLEX_SR",
+			[style.cardRanked]: true
 		})}>
-			<h1 className={style.rankTittle}>{queueRender(leagueEntry.queueType)}</h1>
+			<h1 className={style.rankTittle}>{queueRank(leagueEntry.queueType)}</h1>
 			<div className={style.cardContainer}>
 				
 				<div className={style.rankedEmblem}>

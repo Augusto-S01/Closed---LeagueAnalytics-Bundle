@@ -57,6 +57,7 @@ export const SoloDuoEntrytateSelector = selector({
 		const leagueEntry = await get(LeagueEntrystateSelector);
 		if (leagueEntry == undefined) return;
 		const entry = leagueEntry.find((entry:ILeagueEntry) => {
+			console.log(entry.queueType == "RANKED_SOLO_5x5");
 			if(entry.queueType == "RANKED_SOLO_5x5"){
 				return entry;
 			}
@@ -76,7 +77,6 @@ export const FlexEntrytateSelector = selector({
 				return entry;
 			}
 		});
-
 		return entry;
 	},
 });

@@ -8,6 +8,7 @@ import jungle from "assets/position/icon-position-jungle.png";
 import solo from "assets/position/icon-position-middle.png";
 import bot from "assets/position/icon-position-bottom.png";
 import utility from "assets/position/icon-position-utility.png";
+import fill from "assets/position/icon-position-fill.png";
 
 interface Props{
     role: string;
@@ -24,7 +25,7 @@ function RoleImg({role}: Props){
 			"BOTTOM" : bot,
 			"UTILITY": utility
 		};
-
+		if(!positions[role]) return fill;
 		
 		return positions[role];
 	}

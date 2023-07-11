@@ -23,10 +23,10 @@ function ContainerRank() {
 		throw leagueEntrys.contents;
 	}	
 	return(
-		<>
+		<div className={style.containerRank}>
 			<CardRanked leagueEntry={soloDuoEntrys.contents}/> 
 			<CardRanked leagueEntry={flex5x5Entrys.contents}/> 
-		</>
+		</div>
 	);
 }
 

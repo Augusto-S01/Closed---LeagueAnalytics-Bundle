@@ -34,14 +34,7 @@ function Partida({match}: Props){
 	const participantes = [...match.blueTeam,...match.redTeam];
 	const participante  = participantes.find(participante => participante.summonerName.toUpperCase() == summonerName?.toUpperCase()) as IParticipantResumed ;
 	
-	participantes.forEach(participante => { console.log(participante.summonerName); });
-	console.log("match inside partida");
-	console.log(match);
-	console.log("nickname inside partida");
-	console.log(summonerName);
-	console.log("participante inside partida");
-	console.log(participante);
-	
+
 	if(!participante) return null;
 	return(
 		<div className={classNames({
@@ -60,7 +53,7 @@ function Partida({match}: Props){
 				[style.container__win]: participante?.win === true,
 			})}>
 				<div className={style.container1}>
-					<h1 className={style.queueType}>Ranqueada Solo/Duo</h1>
+					<h1 className={style.queueType}>{queueRender(match.queueId)}</h1>
 					<div className={style.firstBlock}>
 						<SummonerSpellContainer participante={participante}/>
 						<img 

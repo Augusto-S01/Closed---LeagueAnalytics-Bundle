@@ -5,6 +5,7 @@ interface IMatchResumed {
 	matchId: string;
 	gameMode: string;
 	gameType: string;
+	queueId: number;
 	blueTeam: IParticipantResumed[];
 	redTeam: IParticipantResumed[];
 }
