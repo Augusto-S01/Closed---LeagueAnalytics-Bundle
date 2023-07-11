@@ -13,3 +13,18 @@
         border-top: 1px solid #FFF;
     }
 }
+
+
+.skeleton{
+
+
+        &_containerRank{
+                display: flex;
+                flex-direction: column;
+                width: 17em;
+                height: 20em;
+                background: #272730;
+                padding-bottom: 2em;
+                border-radius: 30px;
+        }
+}

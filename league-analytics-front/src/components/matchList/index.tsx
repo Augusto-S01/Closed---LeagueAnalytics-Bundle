@@ -5,16 +5,21 @@ import { useRecoilValueLoadable } from "recoil";
 import { matchListStateSelector } from "state/seletores";
 import Partida from "components/partida";
 import expandMore from "assets/expand_more.svg";
+import { useMatchListState } from "state/hook/useMatchListState";
 
-function matchList(){
-	const matchsDisplayedLoadable = useRecoilValueLoadable(matchListStateSelector);
+function matchList() {
+	const matchsDisplayedLoadable = useMatchListState();
 
-	if (
-		matchsDisplayedLoadable.state === "loading"
-	) {
-		return <div>Loading...</div>;
+	if (matchsDisplayedLoadable.state === "loading") {
+		return (
+			<>
+				<ul className={style.skeleton_list}>
+				
+				</ul>
+				<img src={expandMore} alt="" className={style.expandMore} />
+			</>
+		);
 	}
-
 	if (
 		matchsDisplayedLoadable.state === "hasError"
 	) {
@@ -22,34 +27,18 @@ function matchList(){
 	}
 
 
-	function handleMoreMatchs() {
-		// if (!summonnerResume || !summonnerResume.summoner.puuid || !region || !matchsDisplayed) return;
-		// getMoreMatchs(summonnerResume.summoner.puuid, region, matchsDisplayed).then((response) => {
-		// 	console.log(`matchsDisplayed: ${matchsDisplayed}`);
-		// 	const newMatches = response.data;
-		// 	setMatchsDisplayed(matchsDisplayed + newMatches.length);
-		// 	setSummonnerResume((prevState) => {
-		// 		if (prevState) {
-		// 			return {
-		// 				...prevState,
-		// 				listMatchsResumed: [...prevState.listMatchsResumed, ...newMatches]
-		// 			};
-		// 		}
-		// 		return prevState;
-		// 	});
-		// });
-	}
+
 
 	console.log(matchsDisplayedLoadable.contents);
 	return (
 		<>
 			<ul className={style.list}>
-				
+
 				{matchsDisplayedLoadable.contents?.map((match, index) => (
 					<Partida key={index} match={match} />
 				))}
 			</ul>
-			<img src={expandMore} alt="" className={style.expandMore} onClick={handleMoreMatchs} />
+			<img src={expandMore} alt="" className={style.expandMore} />
 		</>
 	);
 }

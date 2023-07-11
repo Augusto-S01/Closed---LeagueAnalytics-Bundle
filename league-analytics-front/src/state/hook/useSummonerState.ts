@@ -1,10 +1,10 @@
-import { useRecoilValue } from "recoil";
+import {  useRecoilValueLoadable } from "recoil";
 import { summonerStateSelector } from "state/seletores";
 
 
 
 
 export const useSummonerState = () => {
-	const summoner = useRecoilValue(summonerStateSelector);
+	const summoner = useRecoilValueLoadable(summonerStateSelector);
 	return summoner;
 };

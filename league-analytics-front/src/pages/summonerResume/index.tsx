@@ -7,6 +7,8 @@ import MatchList from "components/matchList";
 import ContainerRank from "components/containerRank";
 
 function SummonerResume() {
+	
+
 	return (
 		<div>
 			<Header />

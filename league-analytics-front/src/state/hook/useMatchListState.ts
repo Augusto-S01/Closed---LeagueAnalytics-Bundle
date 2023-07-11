@@ -1,11 +1,10 @@
-import { useRecoilValue, useSetRecoilState} from "recoil";
-import { matchListState } from "state/atom";
+import { useRecoilValueLoadable } from "recoil";
 import { matchListStateSelector } from "state/seletores";
 
 
 
 export const useMatchListState = () => {
-	const matchList = useRecoilValue(matchListStateSelector);
+	const matchList = useRecoilValueLoadable(matchListStateSelector);
 	return matchList;
 };
 
