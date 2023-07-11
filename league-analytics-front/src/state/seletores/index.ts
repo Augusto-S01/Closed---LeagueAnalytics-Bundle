@@ -56,11 +56,8 @@ export const SoloDuoEntrytateSelector = selector({
 	get: async ({ get }) => {
 		const leagueEntry = await get(LeagueEntrystateSelector);
 		if (leagueEntry == undefined) return;
-		console.log(leagueEntry);
 		const entry = leagueEntry.find((entry:ILeagueEntry) => {
 			if(entry.queueType == "RANKED_SOLO_5x5"){
-				console.log("Dentro do seletor");
-				console.log(entry);
 				return entry;
 			}
 		});
@@ -74,11 +71,8 @@ export const FlexEntrytateSelector = selector({
 	get: async ({ get }) => {
 		const leagueEntry = await get(LeagueEntrystateSelector);
 		if (leagueEntry == undefined) return;
-		console.log(leagueEntry);
 		const entry = leagueEntry.find((entry:ILeagueEntry) => {
 			if(entry.queueType == "RANKED_FLEX_SR"){
-				console.log("Dentro do seletor");
-				console.log(entry);
 				return entry;
 			}
 		});

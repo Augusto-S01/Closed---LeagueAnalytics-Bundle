@@ -1,7 +1,4 @@
-import { useParams } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { getSummonerByNickNameAndRegion } from "service/summonerService";
-import { summonerState } from "state/atom";
+import { useRecoilValue } from "recoil";
 import { summonerStateSelector } from "state/seletores";
 
 

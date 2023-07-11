@@ -16,8 +16,6 @@ import challenger from "assets/ranked-emblem/emblem-challenger.png";
 
 
 import classNames from "classnames";
-
-import ILeagueEntryResume from "../../../model/ILeagueEntryResume";
 import { queueRender } from "../../../utils/queueRender";
 import ILeagueEntry from "model/IleagueEntry";
 
@@ -42,12 +40,14 @@ function CardRanked({ leagueEntry }: Props){
 	//faça uma função  que baseado no leagueEntry.rank retorne o emblema correto
 
 	function emblema(rank: string): string{
+		console.log(rank);
 		return emblems[rank];
 	}
-	function teste(){
-		console.log(leagueEntry);
-	}
 
+	function teste(){
+		console.log("teste");
+		console.log(emblema(leagueEntry.rank));
+	}
 
 	return(
 		<div className={classNames({
@@ -58,8 +58,8 @@ function CardRanked({ leagueEntry }: Props){
 			<h1 className={style.rankTittle}>{queueRender(leagueEntry.queueType)}</h1>
 			<div className={style.cardContainer}>
 				
-				<div className={style.rankedEmblem} onClick={teste}>
-					<img className={style.rankedEmblem__img} src={emblema(leagueEntry.rank)}  ></img>
+				<div className={style.rankedEmblem} onClick={teste }>
+					<img className={style.rankedEmblem__img} src={emblema(leagueEntry.tier)}  ></img>
 				</div>
 				
 				<div className={style.rankedInfo}>
