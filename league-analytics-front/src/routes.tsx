@@ -3,9 +3,10 @@ import React from "react";
 import { BrowserRouter , Routes, Route } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Home from "./pages/home";
-import Inicio from "./pages/inicio";
+import Inicio from "./pages/summonerResume";
 import Footer from "./components/footer";
 import Match from "./pages/match";
+import SummonerResume from "./pages/summonerResume";
 
 export default function AppRouter(){
 	return(
@@ -18,7 +19,7 @@ export default function AppRouter(){
 						<Route path="/*" element={<Home/>}></Route>
 						<Route 
 							path="/:region/:summonerName" 
-							element={<Inicio />}>
+							element={<SummonerResume />}>
 						</Route>
 						<Route path="/:region/:summonerName/:matchId" element={<Match/>}></Route>
 					</Routes>

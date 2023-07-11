@@ -3,20 +3,30 @@ import React from "react";
 import style from "./containerRank.module.scss";
 import ILeagueEntryResume from "model/ILeagueEntryResume";
 import CardRanked from "./cardRanked";
+import { useRecoilValueLoadable } from "recoil";
+import { FlexEntrytateSelector, LeagueEntrystateSelector, SoloDuoEntrytateSelector } from "state/seletores";
 
-interface Props {
-	leagueEntrys: ILeagueEntryResume[];
-}
 
-function ContainerRank({ leagueEntrys }: Props) {
-	// const leagueEntrySoloDuo = leagueEntrys.find(leagueEntry => leagueEntry.queueType === "RANKED_SOLO_5x5") as ILeagueEntryResume;
-	// const leagueEntryFlex = leagueEntrys.find(leagueEntry => leagueEntry.queueType === "RANKED_FLEX_SR") as ILeagueEntryResume;
-	
+function ContainerRank() {
+	const leagueEntrys = useRecoilValueLoadable(LeagueEntrystateSelector);
+	const soloDuoEntrys = useRecoilValueLoadable(SoloDuoEntrytateSelector);
+	const flex5x5Entrys = useRecoilValueLoadable(FlexEntrytateSelector);
+	if (
+		leagueEntrys.state === "loading"
+	) {
+		return <div>Loading...</div>;
+	}
+
+	if (
+		leagueEntrys.state === "hasError"
+	) {
+		throw leagueEntrys.contents;
+	}	
 	return(
 		<>
-			{/* <CardRanked leagueEntry={leagueEntrySoloDuo} />
-			<CardRanked leagueEntry={leagueEntryFlex} /> */}
-		</>		
+			<CardRanked leagueEntry={soloDuoEntrys.contents}/> 
+			<CardRanked leagueEntry={flex5x5Entrys.contents}/> 
+		</>
 	);
 }
 

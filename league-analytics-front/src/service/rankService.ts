@@ -1,4 +1,5 @@
 import axios from "axios";
+import ILeagueEntry from "model/IleagueEntry";
 
 const config = {
 	headers: {
@@ -13,7 +14,7 @@ export function getLeagueEntrysByPuuid(summonerId: string) {
 	return axios.get(`http://localhost:8080/ranked/${summonerId}`, config);
 }
 export function getLeagueEntrysBySummonerIDFilter(summonerId: string) {
-	return axios.get(`http://localhost:8080/ranked/filter/${summonerId}`, config);
+	return axios.get<ILeagueEntry[]>(`http://localhost:8080/ranked/filter/${summonerId}`, config);
 }
 
 

@@ -19,9 +19,10 @@ import classNames from "classnames";
 
 import ILeagueEntryResume from "../../../model/ILeagueEntryResume";
 import { queueRender } from "../../../utils/queueRender";
+import ILeagueEntry from "model/IleagueEntry";
 
 interface Props{
-	leagueEntry :  ILeagueEntryResume;
+	leagueEntry :  ILeagueEntry;
 }
 
 
@@ -43,6 +44,9 @@ function CardRanked({ leagueEntry }: Props){
 	function emblema(rank: string): string{
 		return emblems[rank];
 	}
+	function teste(){
+		console.log(leagueEntry);
+	}
 
 
 	return(
@@ -54,7 +58,7 @@ function CardRanked({ leagueEntry }: Props){
 			<h1 className={style.rankTittle}>{queueRender(leagueEntry.queueType)}</h1>
 			<div className={style.cardContainer}>
 				
-				<div className={style.rankedEmblem}>
+				<div className={style.rankedEmblem} onClick={teste}>
 					<img className={style.rankedEmblem__img} src={emblema(leagueEntry.rank)}  ></img>
 				</div>
 				

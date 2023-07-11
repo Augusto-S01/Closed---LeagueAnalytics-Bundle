@@ -9,8 +9,15 @@ import { getSummonerByQuery } from "service/summonerService";
 
 export const summonerState = atom<ISummonerName>({
 	key: "summonerState",
+	default: {
+		id: "",
+		puuid: "",
+		profileIconId: 0,
+		summonerLevel: 0,
+	}
 });
 
 export const matchListState = atom<IMatchResumed[]>({
-	key: "matchList"
+	key: "matchList",
+	default: [],
 });
