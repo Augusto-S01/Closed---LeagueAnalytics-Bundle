@@ -29,17 +29,20 @@ interface Props{
 
 function Partida({match}: Props){
 	const { region , summonerName } = useParams();
-
+	
 
 	const participantes = [...match.blueTeam,...match.redTeam];
-	const participante  = participantes.find(participante => participante.summonerName === summonerName) as IParticipantResumed ;
+	const participante  = participantes.find(participante => participante.summonerName.toUpperCase() == summonerName?.toUpperCase()) as IParticipantResumed ;
 	
-
-
-
+	participantes.forEach(participante => { console.log(participante.summonerName); });
+	console.log("match inside partida");
+	console.log(match);
+	console.log("nickname inside partida");
+	console.log(summonerName);
+	console.log("participante inside partida");
+	console.log(participante);
 	
-	
-
+	if(!participante) return null;
 	return(
 		<div className={classNames({
 			[style.partida]: true,

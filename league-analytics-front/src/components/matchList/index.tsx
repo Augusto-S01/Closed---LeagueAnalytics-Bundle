@@ -40,10 +40,11 @@ function matchList(){
 		// });
 	}
 
-
+	console.log(matchsDisplayedLoadable.contents);
 	return (
 		<>
 			<ul className={style.list}>
+				
 				{matchsDisplayedLoadable.contents?.map((match, index) => (
 					<Partida key={index} match={match} />
 				))}

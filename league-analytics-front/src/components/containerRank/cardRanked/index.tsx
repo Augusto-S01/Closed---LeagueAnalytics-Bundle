@@ -40,14 +40,9 @@ function CardRanked({ leagueEntry }: Props){
 	//faça uma função  que baseado no leagueEntry.rank retorne o emblema correto
 
 	function emblema(rank: string): string{
-		console.log(rank);
 		return emblems[rank];
 	}
 
-	function teste(){
-		console.log("teste");
-		console.log(emblema(leagueEntry.rank));
-	}
 
 	return(
 		<div className={classNames({
@@ -58,7 +53,7 @@ function CardRanked({ leagueEntry }: Props){
 			<h1 className={style.rankTittle}>{queueRender(leagueEntry.queueType)}</h1>
 			<div className={style.cardContainer}>
 				
-				<div className={style.rankedEmblem} onClick={teste }>
+				<div className={style.rankedEmblem}>
 					<img className={style.rankedEmblem__img} src={emblema(leagueEntry.tier)}  ></img>
 				</div>
 				

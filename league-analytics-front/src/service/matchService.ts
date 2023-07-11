@@ -42,6 +42,9 @@ export function getMatchesByPuuid(
 	}
 	try{
 		const response = axios.get<IMatchResumed[]>(url, config);
+		response.then((res) => {
+			console.log(res);
+		});
 		return response;
 	}
 	catch(error){
