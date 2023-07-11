@@ -36,7 +36,7 @@ import com.LeagueAnalytics.service.SummonerService;
 
 @RestController
 @RequestMapping("/summoner")
-@CrossOrigin("*")
+@CrossOrigin("*") 
 public class SummonerController {
 	@Value("${riotAPI.key}")
 	private String riotAPI;
@@ -50,7 +50,7 @@ public class SummonerController {
 	
 	
 	@GetMapping(value = "/{region}/{nickname}")
-	public ResponseEntity<?> getSummonerByNickNameAndRegion(@PathVariable String nickname){
+	public ResponseEntity<?> getSummonerByNickNameAndRegion(@PathVariable String region ,@PathVariable String nickname){
 		SummonerNameDTO summoner = new SummonerNameDTO();
 		try {
 			summoner = summonerService.getSummonerByNickname(nickname);
@@ -60,6 +60,7 @@ public class SummonerController {
 		}
 		
 	};
+	
 	
 	@GetMapping(value = "/verifySummoner/{nickname}")
 	public ResponseEntity<Boolean> verifySummoner(@PathVariable String nickname){

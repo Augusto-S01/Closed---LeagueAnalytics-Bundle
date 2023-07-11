@@ -8,14 +8,13 @@ import classNames from "classnames";
 import { getSummonerByNickname } from "../../service/leagueService";
 import IHomepageInfo from "../../model/IHomepageInfo";
 import { useSetRecoilState } from "recoil";
-import { homepageInfoState } from "../../state/atom";
 
 function SearchInput() {
 	const navigate = useNavigate();
 	const [region, setRegion] = useState("");
 	const [summonerNickName, setSummonerNickName] = useState("");
 	const [error, setError] = useState("");
-	const setHomepageInfo = useSetRecoilState<IHomepageInfo>(homepageInfoState);
+	// const setHomepageInfo = useSetRecoilState<IHomepageInfo>(homepageInfoState);
 
 
 	function enterSearch() {
@@ -32,7 +31,7 @@ function SearchInput() {
 			getSummonerByNickname(summonerNickName)
 				.then((response) => {
 					const data: IHomepageInfo = response.data;
-					setHomepageInfo(data);
+					// setHomepageInfo(data);
 					navigate(`/BR/${summonerNickName}`);
 				});
 				

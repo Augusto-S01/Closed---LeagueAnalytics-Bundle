@@ -113,13 +113,17 @@ public class MatchService {
 	
 	
 	private String addOptionalParams(String baseUrl, ParamsMatchByPuuidDTO params) {
+	    boolean primeiroParametro = true;
 	    for (Field field : ParamsMatchByPuuidDTO.class.getDeclaredFields()) {
 	        try {
+	            field.setAccessible(true);
 	            Object value = field.get(params);
-	            if (value != null) {
+	            String name = field.getName();
+	            if (value != null && !name.equals("puuid")) {
 	                String paramName = field.getName();
 	                String paramValue = value.toString();
-	                baseUrl += "&" + paramName + "=" + paramValue;
+	                baseUrl += (primeiroParametro ? "?" : "&") + paramName + "=" + paramValue;
+	                primeiroParametro = false;
 	            }
 	        } catch (IllegalAccessException e) {
 	            e.printStackTrace();

@@ -1,17 +1,36 @@
-// import { selector, useRecoilValue } from "recoil";
-// import { homepageInfoState } from "../atom";
-// import IHomepageInfo from "model/IHomepageInfo";
-// import { getSummonerByNickname } from "service/leagueService";
-// import { nicknameState } from "../atom";
+import { useParams } from "react-router-dom";
+import { selector, waitForAll } from "recoil";
+import { getMatchesByPuuid } from "service/matchService";
+import { getSummonerByNickNameAndRegion, getSummonerByQuery } from "service/summonerService";
 
-
-
-// export const homePageinfoAsync = selector<IHomepageInfo>({
-// 	key: "homePageinfoAsync",
+// export const mySelector = selector({
+// 	key: "mySelector",
 // 	get: async ({ get }) => {
-
-// 		const nickname = useRecoilValue(nicknameState);
-// 		const response = await getSummonerByNickname(nickname);
-// 		return response.data as IHomepageInfo;
+// 		return await getSummonerByQuery();
 // 	},
 // });
+
+export const summonerStateSelector = selector({
+	key: "summonerStateSelector",
+	get: async ({ get }) => {
+		const {summonerName} = useParams();
+		if(summonerName == undefined) return;
+		const summoner = await getSummonerByNickNameAndRegion(summonerName);
+		return summoner.data;
+	}
+});
+
+export const matchListStateSelector = selector({
+	key: "matchListStateSelector",
+	get: async ({ get }) => {
+		const summonerName = get(summonerStateSelector);
+		if (summonerName == undefined) return;
+
+		const [matchesResponse, summoner] = await Promise.all([
+			getMatchesByPuuid(summonerName.puuid),
+			get(summonerStateSelector),
+		]);
+
+		return matchesResponse.data;
+	},
+});

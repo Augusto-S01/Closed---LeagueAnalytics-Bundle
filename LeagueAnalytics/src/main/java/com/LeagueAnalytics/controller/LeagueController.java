@@ -43,22 +43,22 @@ public class LeagueController {
 	@Autowired
 	private MatchService matchService;
 	
-//	@GetMapping(value = "/{nickname}")
-//	public ResponseEntity<?> resume(@PathVariable String nickname){
-//		SummonerNameDTO summoner = new SummonerNameDTO();
-//		try {
-//			summoner = summonerService.getSummonerByNickname(nickname);
-//		}catch(SummonerNotFoudException e) {
-//			return ResponseEntity.status(HttpStatusCode.valueOf(404)).body("Nao encontrado");
-//		}
-//		List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summoner.getId());
-//		List<String> ListMatchIDS = matchService.getListMatchIdsByPuuid(summoner.getPuuid(), 0l, 3l);
-//		List<MatchDTO> Listmatchs = new ArrayList<MatchDTO>();
-//		ListMatchIDS.forEach( matchId -> Listmatchs.add( matchService.getMatchByMatchId(matchId)) );
-//		
-//		HomepageInfoDTO homepageInfoDTO = new HomepageInfoDTO(summoner,leagueEntrys,Listmatchs);
-//		return ResponseEntity.ok(homepageInfoDTO);
-//	}
+	@GetMapping(value = "/{nickname}")
+	public ResponseEntity<?> resume(@PathVariable String nickname){
+		SummonerNameDTO summoner = new SummonerNameDTO();
+		try {
+			summoner = summonerService.getSummonerByNickname(nickname);
+		}catch(SummonerNotFoudException e) {
+			return ResponseEntity.status(HttpStatusCode.valueOf(404)).body("Nao encontrado");
+		}
+		List<LeagueEntryDTO> leagueEntrys = leagueService.getLeagueEntrysBySummonerId(summoner.getId());
+		List<String> ListMatchIDS = matchService.getListMatchIdsByPuuid(summoner.getPuuid(), 0l, 3l);
+		List<MatchDTO> Listmatchs = new ArrayList<MatchDTO>();
+		ListMatchIDS.forEach( matchId -> Listmatchs.add( matchService.getMatchByMatchId(matchId)) );
+		
+		HomepageInfoDTO homepageInfoDTO = new HomepageInfoDTO(summoner,leagueEntrys,Listmatchs);
+		return ResponseEntity.ok(homepageInfoDTO);
+	}
 	
 
 	

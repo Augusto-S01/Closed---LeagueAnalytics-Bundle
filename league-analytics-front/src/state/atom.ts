@@ -1,8 +1,16 @@
+import IMatchResumed from "model/IMatchResumed";
+import ISummonerName from "model/ISummonerName";
 import {atom} from "recoil";
-import IHomepageInfo from "../model/IHomepageInfo";
+import { getSummonerByQuery } from "service/summonerService";
 
 
-export const homepageInfoState = atom<IHomepageInfo>({
-	key: "homepageInfoState"
+
+
+
+export const summonerState = atom<ISummonerName>({
+	key: "summonerState",
 });
 
+export const matchListState = atom<IMatchResumed[]>({
+	key: "matchList"
+});
