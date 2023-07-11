@@ -48,8 +48,18 @@
 	flex-direction: column;
 	margin-left: 1em;
 }
-.container2{
-}
+
+  .spanTempo {
+	display: flex;
+	flex-direction: row;
+	padding-top: 0.25em;
+  	color: #717173;
+  	font-size: 1em;
+  	font-family: Roboto;
+  	font-style: normal;
+  	font-weight: 700;
+  	line-height: normal;
+  }
 
 
 .firstBlock{

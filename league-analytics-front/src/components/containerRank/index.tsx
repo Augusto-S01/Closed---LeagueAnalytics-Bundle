@@ -1,7 +1,6 @@
 import React from "react";
 
 import style from "./containerRank.module.scss";
-import ILeagueEntryResume from "model/ILeagueEntryResume";
 import CardRanked from "./cardRanked";
 import { useRecoilValueLoadable } from "recoil";
 import { FlexEntrytateSelector, LeagueEntrystateSelector, SoloDuoEntrytateSelector } from "state/seletores";

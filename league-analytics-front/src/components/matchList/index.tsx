@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "./matchList.module.scss";
 import { useRecoilValueLoadable } from "recoil";
-import { summonerStateSelector, matchListStateSelector } from "state/seletores";
+import { matchListStateSelector } from "state/seletores";
 import Partida from "components/partida";
 import expandMore from "assets/expand_more.svg";
 

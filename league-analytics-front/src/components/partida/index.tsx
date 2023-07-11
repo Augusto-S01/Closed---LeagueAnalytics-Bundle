@@ -7,7 +7,7 @@ import style from "./partida.module.scss";
 
 import chevron_right from "../../assets/chevron_right.svg";
 import IMatchResumed from "../../model/IMatchResumed";
-import { queueRender } from "../../utils/queueRender";
+import { formatDataHora, queueRender } from "../../utils/queueRender";
 import { useParams } from "react-router-dom";
 import IParticipantResumed from "../../model/IParticipantResumed";
 
@@ -28,7 +28,7 @@ interface Props{
 }
 
 function Partida({match}: Props){
-	const { region , summonerName } = useParams();
+	const { summonerName } = useParams();
 	
 
 	const participantes = [...match.blueTeam,...match.redTeam];
@@ -63,6 +63,7 @@ function Partida({match}: Props){
 						/>
 						<RoleImg role={participante?.individualPosition} />
 					</div>
+					<span className={style.spanTempo}>{formatDataHora(match.gameCreation)}</span>
 				</div>
 				<div className={style.containerKillRunasItens}>
 					<div className={style.containerKDAMatchResultRunes}>
