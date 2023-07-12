@@ -16,7 +16,7 @@ function matchList() {
 				<ul className={style.skeleton_list}>
 				
 				</ul>
-				<img src={expandMore} alt="" className={style.expandMore} />
+				{/* <img src={expandMore} alt="" className={style.expandMore} /> */}
 			</>
 		);
 	}
@@ -38,7 +38,7 @@ function matchList() {
 					<Partida key={index} match={match} />
 				))}
 			</ul>
-			<img src={expandMore} alt="" className={style.expandMore} />
+			{/* <img src={expandMore} alt="" className={style.expandMore} /> */}
 		</>
 	);
 }
